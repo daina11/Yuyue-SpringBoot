@@ -16,6 +16,12 @@ import java.io.PrintWriter;
 public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         boolean flag;
+        //在拦截器中设置允许跨域 避免拦截器和跨域的配置冲突导致跨域报错
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Headers","*");
+        response.setHeader("Access-Control-Allow-Methods","*");
+        response.setHeader("Access-Control-Allow-Credentials","true");
+        response.setHeader("Access-Control-Max-Age","3600");
 
         //放行静态资源
         if (handler instanceof ResourceHttpRequestHandler)
@@ -23,7 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //验证token信息是否正确
 
         //User user = (User) request.getSession().getAttribute("user");
-        String token = request.getHeader("token");
+        String token = request.getHeader("x-token");
 //        if (user == null) {
 //            System.out.println("拦截成功！！");
 //            //验证不成功重定向到登录页

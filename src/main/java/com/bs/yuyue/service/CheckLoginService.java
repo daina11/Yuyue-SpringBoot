@@ -49,6 +49,8 @@ public class CheckLoginService {
 
     }
 
+
+    /*获取用户信息*/
     public User GetUserInfo(String token) {
         //解析token中的uid 获取用户信息
         Claims claims;
@@ -58,5 +60,11 @@ public class CheckLoginService {
                 .getBody();
         int uid = (int) claims.get("uid");
         return userDao.findById(uid);
+    }
+
+    /*退出登录*/
+    public RetResponse LoginOut(){
+
+        return RetResponse.SuccessRsp("退出登录成功！");
     }
 }

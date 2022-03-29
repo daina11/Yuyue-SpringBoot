@@ -43,5 +43,11 @@ public class LoginRegisterController {
         String token = (String) headers.get("x-token");
         return RetResponse.SuccessRsp(checkLoginService.GetUserInfo(token));
     }
+    /*退出登录*/
+    @PostMapping(value = "/loginOut")
+    public RetResponse LoginOut(@RequestBody Map<String, Object> ci){
+    return RetResponse.SuccessRsp(checkLoginService.LoginOut());
+
+    }
 
 }
