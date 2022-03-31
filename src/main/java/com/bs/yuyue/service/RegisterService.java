@@ -13,19 +13,18 @@ public class RegisterService {
     @Autowired
     UserDao userDao;
 
-    public RetResult register(String username, String pwd) {
+    public RetResult register(String username, String password) {
         User user = userDao.findByName(username);
         if (user != null) {
             return RetResponse.ErrRsp("用户名已存在！");
         } else {
             try {
                 //加密密码
-                String md5pwd = MD5Utils.md5(pwd);
+                String md5pwd = MD5Utils.md5(password);
                 User u = new User();
                 u.setName(username);
                 u.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
                 u.setPassword(md5pwd);
-
                 userDao.save(u);
                 return RetResponse.SuccessRsp("注册成功");
             } catch (Exception e) {

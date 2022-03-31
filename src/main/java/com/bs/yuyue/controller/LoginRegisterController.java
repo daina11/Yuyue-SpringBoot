@@ -19,8 +19,8 @@ public class LoginRegisterController {
     /*注册*/
     @PostMapping(value = "/register")
     public RetResponse register(@RequestBody Map<String, Object> ci) {
-        String name = (String) ci.get("name");
-        String pwd = (String) ci.get("pwd");
+        String name = (String) ci.get("username");
+        String pwd = (String) ci.get("password");
         RetResponse r = registerService.register(name, pwd);
         return r;
     }
@@ -43,10 +43,11 @@ public class LoginRegisterController {
         String token = (String) headers.get("x-token");
         return RetResponse.SuccessRsp(checkLoginService.GetUserInfo(token));
     }
+
     /*退出登录*/
     @PostMapping(value = "/loginOut")
-    public RetResponse LoginOut(@RequestBody Map<String, Object> ci){
-    return RetResponse.SuccessRsp(checkLoginService.LoginOut());
+    public RetResponse LoginOut() {
+        return RetResponse.SuccessRsp("退出登录成功！");
 
     }
 

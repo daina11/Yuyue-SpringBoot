@@ -44,7 +44,7 @@ public class CheckLoginService {
                 return RetResponse.ErrRsp("账户或密码错误！");
             }
         } else {
-            return RetResponse.ErrRsp("token为空，登陆失败！");
+            return RetResponse.ErrRsp("账户或密码错误！");
         }
 
     }
