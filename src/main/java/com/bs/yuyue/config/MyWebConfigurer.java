@@ -10,7 +10,7 @@ public class MyWebConfigurer implements WebMvcConfigurer {
         //所有请求都允许跨域，使用这种配置方法就不用在 interceptor 中再配置 header 了
         registry.addMapping("/**")
                 .allowCredentials(true)
-                .allowedOrigins("http://localhost:9528")
+                .allowedOrigins("*")
                 .allowedOrigins("*")//允许跨域访问的路径
                 .allowedMethods("*")
                 .allowedHeaders("*")
@@ -22,6 +22,6 @@ public class MyWebConfigurer implements WebMvcConfigurer {
                 //所有路径都被拦截
                 .addPathPatterns("/**")
                 //添加不拦截的路径
-                .excludePathPatterns("/register","/login");
+                .excludePathPatterns("/register","/login","/wx/user/login","/wx/user/saveinfo");
     }
 }
