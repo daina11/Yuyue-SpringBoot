@@ -7,4 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ShopDao extends JpaRepository<Shop,Integer> {
     Page<Shop> findAll(Pageable pageable);
+    Shop findById(int id);
+    Page<Shop> findAllByStatus(Pageable pageable,int status);
 }

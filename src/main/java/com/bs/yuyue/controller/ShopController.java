@@ -12,8 +12,14 @@ import java.util.Map;
 public class ShopController {
     @Autowired
     ShopService shopService;
+    //分页获取商店列表
     @GetMapping(value = "/wx/other/getshop")
     public RetResponse getShop(@RequestParam int page) {
         return  shopService.getShop(page);
+    }
+    //根据id查找商店
+    @GetMapping(value = "/wx/other/getshopbyid")
+    public RetResponse getshopByid(@RequestParam int id) {
+        return  shopService.getById(id);
     }
 }

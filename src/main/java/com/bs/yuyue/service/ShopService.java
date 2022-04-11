@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 public class ShopService {
     @Autowired
     ShopDao shopDao;
+    //查过审状态的商店
     public RetResponse getShop(int page) {
-        Page list = shopDao.findAll(PageRequest.of(page, 4));
+        Page list = shopDao.findAllByStatus(PageRequest.of(page, 4),1);
         return RetResponse.SuccessRsp(list);
+    }
+    public RetResponse getById(int id){
+        return RetResponse.SuccessRsp(shopDao.findById(id));
     }
 }
