@@ -12,10 +12,20 @@ public class ShopService {
     ShopDao shopDao;
     //查过审状态的商店
     public RetResponse getShop(int page) {
-        Page list = shopDao.findAllByStatus(PageRequest.of(page, 4),1);
+        Page list = shopDao.findAllBySubscribeStatusId(PageRequest.of(page, 4),0);
         return RetResponse.SuccessRsp(list);
     }
     public RetResponse getById(int id){
         return RetResponse.SuccessRsp(shopDao.findById(id));
+    }
+    //根据价格升序
+    public RetResponse getShopBypriceAsc(int page){
+        Page list = shopDao.findAllBySubscribeStatusIdOrderByPriceAsc(PageRequest.of(page, 4),0);
+        return RetResponse.SuccessRsp(list);
+    }
+    //根据价格降序findAllByStatusOrderByPriceDesc
+    public RetResponse getShopBypriceDesc(int page){
+        Page list = shopDao.findAllBySubscribeStatusIdOrderByPriceDesc(PageRequest.of(page, 4),0);
+        return RetResponse.SuccessRsp(list);
     }
 }

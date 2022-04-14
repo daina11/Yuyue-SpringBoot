@@ -22,4 +22,20 @@ public class ShopController {
     public RetResponse getshopByid(@RequestParam int id) {
         return  shopService.getById(id);
     }
+
+    //热门
+    //
+    @GetMapping(value = "/wx/other/hotlist")
+    public RetResponse getShopbyPriceAsc(@RequestParam int page,int type) {
+        if(type==1){
+            return  shopService.getShop(page);
+        }else if(type==2){
+            //价格低到高ASC
+            return shopService.getShopBypriceAsc(page);
+        }else{
+            //价格高到低
+            return shopService.getShopBypriceDesc(page);
+        }
+
+    }
 }

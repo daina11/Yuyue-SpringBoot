@@ -3,9 +3,14 @@ package com.bs.yuyue.service;
 import com.bs.yuyue.dao.WxUserDao;
 import com.bs.yuyue.pojo.WxUser;
 import com.bs.yuyue.vo.RetResponse;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 @Service
