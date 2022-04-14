@@ -28,4 +28,9 @@ public class ShopService {
         Page list = shopDao.findAllBySubscribeStatusIdOrderByPriceDesc(PageRequest.of(page, 4),0);
         return RetResponse.SuccessRsp(list);
     }
+    //搜索 findAllByNameAndTitleLike
+    public RetResponse searchBynameAndTitle(int page,String text){
+        Page list = shopDao.findAllByNameLikeOrTitleLike(PageRequest.of(page, 4),"%"+text+"%","%"+text+"%");
+        return RetResponse.SuccessRsp(list);
+    }
 }

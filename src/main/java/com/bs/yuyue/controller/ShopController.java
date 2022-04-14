@@ -36,6 +36,10 @@ public class ShopController {
             //价格高到低
             return shopService.getShopBypriceDesc(page);
         }
-
+    }
+    //搜索 searchBynameAndTitle
+    @GetMapping(value = "/wx/other/search")
+    public RetResponse search(@RequestParam int page,String text) {
+        return  shopService.searchBynameAndTitle(page,text);
     }
 }

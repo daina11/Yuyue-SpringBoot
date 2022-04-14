@@ -11,4 +11,5 @@ public interface ShopDao extends JpaRepository<Shop,Integer> {
     Page<Shop> findAllBySubscribeStatusId(Pageable pageable,int Subscribe_status);
     Page<Shop> findAllBySubscribeStatusIdOrderByPriceAsc(Pageable pageable,int Subscribe_status);
     Page<Shop> findAllBySubscribeStatusIdOrderByPriceDesc(Pageable pageable,int Subscribe_status);
+    Page<Shop> findAllByNameLikeOrTitleLike(Pageable pageable,String text,String t);
 }
