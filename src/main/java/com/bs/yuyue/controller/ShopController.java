@@ -42,4 +42,9 @@ public class ShopController {
     public RetResponse search(@RequestParam int page,String text) {
         return  shopService.searchBynameAndTitle(page,text);
     }
+    //根据分类查找
+    @GetMapping(value = "/wx/other/getbycid")
+    public RetResponse getbycid(@RequestParam int page,int cid) {
+        return  shopService.findByCid(page,cid);
+    }
 }

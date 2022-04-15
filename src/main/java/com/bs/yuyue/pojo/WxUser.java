@@ -12,7 +12,24 @@ public class WxUser {
   private String nickname;
   private String avatarurl;
   private int deleted;
+  private  String city;
+  private String phone;
 
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
 
   public String getOpenid() {
     return openid;

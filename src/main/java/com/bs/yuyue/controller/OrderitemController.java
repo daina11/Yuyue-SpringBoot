@@ -4,10 +4,7 @@ import com.bs.yuyue.pojo.Orderitem;
 import com.bs.yuyue.service.OrderitemService;
 import com.bs.yuyue.vo.RetResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -29,5 +26,15 @@ public class OrderitemController {
         oi.setPhone(phone);
         orderitemService.postOrder(oi);
         return RetResponse.SuccessRsp("预约成功！");
+    }
+    //获取为完成订单
+    @GetMapping(value = "/wx/other/getorderunsuccess")
+    public RetResponse getorderunsuccess(@RequestParam int page,String openid) {
+        return  orderitemService.getorderBypid(page,openid);
+    }
+    //获取已完成订单 getordersuccess
+    @GetMapping(value = "/wx/other/getordersuccess")
+    public RetResponse getordersuccess(@RequestParam int page,String openid) {
+        return  orderitemService.getordersuccess(page,openid);
     }
 }

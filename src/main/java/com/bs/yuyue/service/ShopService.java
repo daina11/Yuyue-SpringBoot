@@ -33,4 +33,9 @@ public class ShopService {
         Page list = shopDao.findAllByNameLikeOrTitleLike(PageRequest.of(page, 4),"%"+text+"%","%"+text+"%");
         return RetResponse.SuccessRsp(list);
     }
+    //分类查找
+    public RetResponse findByCid(int page,int cid){
+        Page list = shopDao.findAllByCategoryId(PageRequest.of(page, 4),cid);
+        return RetResponse.SuccessRsp(list);
+    }
 }
