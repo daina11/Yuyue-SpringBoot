@@ -17,13 +17,18 @@ public class OrderitemService {
         return ;
     }
     //查找未完成订单
-    public RetResponse getorderBypid(int page,String oid){
+    public RetResponse getorderBypid(String oid){
 
-        return RetResponse.SuccessRsp(orderitemDao.findAllByOpenidAndStatusOrderByTimeDesc(PageRequest.of(page, 5),oid,0));
+        return RetResponse.SuccessRsp(orderitemDao.findAllByOpenidAndStatusOrderByTimeDesc(oid,0));
     }
     //查找已完成订单
-    public RetResponse getordersuccess(int page,String oid){
+    public RetResponse getordersuccess(String oid){
 
-        return RetResponse.SuccessRsp(orderitemDao.findAllByOpenidAndStatusOrderByTimeDesc(PageRequest.of(page, 5),oid,1));
+        return RetResponse.SuccessRsp(orderitemDao.findAllByOpenidAndStatusOrderByTimeDesc(oid,1));
+    }
+    //取消订单 删除
+    //查找已完成订单
+    public RetResponse delorder(int id){
+        return RetResponse.SuccessRsp(orderitemDao.deleteById(id));
     }
 }

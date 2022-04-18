@@ -29,12 +29,23 @@ public class OrderitemController {
     }
     //获取为完成订单
     @GetMapping(value = "/wx/other/getorderunsuccess")
-    public RetResponse getorderunsuccess(@RequestParam int page,String openid) {
-        return  orderitemService.getorderBypid(page,openid);
+    public RetResponse getorderunsuccess(@RequestParam String openid) {
+        return  orderitemService.getorderBypid(openid);
     }
     //获取已完成订单 getordersuccess
     @GetMapping(value = "/wx/other/getordersuccess")
-    public RetResponse getordersuccess(@RequestParam int page,String openid) {
-        return  orderitemService.getordersuccess(page,openid);
+    public RetResponse getordersuccess(@RequestParam String openid) {
+        return  orderitemService.getordersuccess(openid);
+    }
+    //删除订单delorder
+    @GetMapping(value = "/wx/other/delorder")
+    public RetResponse delorder (@RequestParam int id) {
+        try {
+            orderitemService.delorder(id);
+            return RetResponse.SuccessRsp("取消订单成功");
+        }catch (Exception e){
+            return RetResponse.ErrRsp("取消订单失败");
+        }
+
     }
 }

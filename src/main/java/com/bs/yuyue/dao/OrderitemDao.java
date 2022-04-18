@@ -7,6 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface OrderitemDao extends JpaRepository<Orderitem,Integer> {
-    Page<Orderitem> findAllByOpenidAndStatusOrderByTimeDesc(Pageable pageable,String openid,int status);
+    List<Orderitem> findAllByOpenidAndStatusOrderByTimeDesc(String openid, int status);
+    Orderitem deleteById(int id);
 }

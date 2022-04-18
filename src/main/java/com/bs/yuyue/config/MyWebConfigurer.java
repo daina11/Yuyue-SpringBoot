@@ -22,6 +22,6 @@ public class MyWebConfigurer implements WebMvcConfigurer {
                 //所有路径都被拦截
                 .addPathPatterns("/**")
                 //添加不拦截的路径
-                .excludePathPatterns("/register","/login","/wx/user/login","/wx/user/saveinfo","/wx/other/*");
+                .excludePathPatterns("/register","/login","/wx/user/login","/wx/user/saveinfo","/wx/other/*","/updateimg");
     }
 }

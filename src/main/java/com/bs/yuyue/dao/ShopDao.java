@@ -8,9 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ShopDao extends JpaRepository<Shop,Integer> {
     Page<Shop> findAll(Pageable pageable);
     Shop findById(int id);
+    Shop findByUserid(int uid);
     Page<Shop> findAllBySubscribeStatusId(Pageable pageable,int Subscribe_status);
     Page<Shop> findAllBySubscribeStatusIdOrderByPriceAsc(Pageable pageable,int Subscribe_status);
     Page<Shop> findAllBySubscribeStatusIdOrderByPriceDesc(Pageable pageable,int Subscribe_status);
-    Page<Shop> findAllByNameLikeOrTitleLike(Pageable pageable,String text,String t);
+    Page<Shop> findAllByNameLikeOrTitleLikeOrLocationLike(Pageable pageable,String text,String t,String ts);
     Page<Shop> findAllByCategoryId(Pageable pageable,int cid);
 }

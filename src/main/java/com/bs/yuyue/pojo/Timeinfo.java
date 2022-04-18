@@ -1,20 +1,26 @@
 package com.bs.yuyue.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})//防止信息格式化位json时有字段为null 报错
 public class Timeinfo {
-
-  private long id;
+  @Id
+  private int id;
   private String begintime;
   private String endtime;
-  private long shopid;
+  private int shopid;
 
 
-  public long getId() {
+  public int getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
@@ -37,11 +43,11 @@ public class Timeinfo {
   }
 
 
-  public long getShopid() {
+  public int getShopid() {
     return shopid;
   }
 
-  public void setShopid(long shopid) {
+  public void setShopid(int shopid) {
     this.shopid = shopid;
   }
 

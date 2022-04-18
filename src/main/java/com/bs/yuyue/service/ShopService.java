@@ -1,4 +1,5 @@
 package com.bs.yuyue.service;
+import com.bs.yuyue.pojo.Shop;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import com.bs.yuyue.dao.ShopDao;
@@ -30,12 +31,20 @@ public class ShopService {
     }
     //搜索 findAllByNameAndTitleLike
     public RetResponse searchBynameAndTitle(int page,String text){
-        Page list = shopDao.findAllByNameLikeOrTitleLike(PageRequest.of(page, 4),"%"+text+"%","%"+text+"%");
+        Page list = shopDao.findAllByNameLikeOrTitleLikeOrLocationLike(PageRequest.of(page, 4),"%"+text+"%","%"+text+"%","%"+text+"%");
         return RetResponse.SuccessRsp(list);
     }
     //分类查找
     public RetResponse findByCid(int page,int cid){
         Page list = shopDao.findAllByCategoryId(PageRequest.of(page, 4),cid);
         return RetResponse.SuccessRsp(list);
+    }
+    //储存新的shop
+    public void saveShop(Shop shop){
+        shopDao.save(shop);
+        return;
+    }
+    public Shop findbyUid(int uid){
+        return shopDao.findByUserid(uid);
     }
 }

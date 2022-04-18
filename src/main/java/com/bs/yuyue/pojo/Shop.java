@@ -20,6 +20,33 @@ public class Shop {
   private String content;
   private int categoryId;
   private Integer hotindex;
+  private int userid;
+  private String begintime;
+  private String endtime;
+
+  public String getBegintime() {
+    return begintime;
+  }
+
+  public void setBegintime(String begintime) {
+    this.begintime = begintime;
+  }
+
+  public String getEndtime() {
+    return endtime;
+  }
+
+  public void setEndtime(String endtime) {
+    this.endtime = endtime;
+  }
+
+  public int getUserid() {
+    return userid;
+  }
+
+  public void setUserid(int userid) {
+    this.userid = userid;
+  }
 
   public int getCategoryId() {
     return categoryId;
