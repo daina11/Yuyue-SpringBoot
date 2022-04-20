@@ -9,7 +9,7 @@ public class User {
     private String name;
     private String password;
     private String avatar;
-    private int roleId=1;
+    private int roleId=2;
 
     public int getRoleId() {
         return roleId;

@@ -76,8 +76,8 @@ public class ShopController {
           shop.setLocation((String) ci.get("location"));
           shop.setPhone(ci.get("phone").toString());
           shop.setImgurl((String) ci.get("imgurl"));
-          s.setBegintime((String) ci.get("date1"));
-          s.setEndtime((String) ci.get("date2"));
+          shop.setBegintime((String) ci.get("date1"));
+          shop.setEndtime((String) ci.get("date2"));
           shopService.saveShop(shop);
 
       }else {
