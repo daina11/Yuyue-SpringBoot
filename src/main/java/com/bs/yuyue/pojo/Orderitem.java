@@ -14,7 +14,24 @@ public class Orderitem {
   private int shopid;
   private String phone;
   private int status;
+  private  int peoplenumber;
+  private String name;
 
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public int getPeoplenumber() {
+    return peoplenumber;
+  }
+
+  public void setPeoplenumber(int peoplenumber) {
+    this.peoplenumber = peoplenumber;
+  }
 
   public int getId() {
     return id;
@@ -54,6 +71,17 @@ public class Orderitem {
 
   public String getPhone() {
     return phone;
+  }
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "status", referencedColumnName = "id", insertable = false, updatable = false)
+  private Orderstatusitem orderstatusitem;
+
+  public Orderstatusitem getOrderstatusitem() {
+    return orderstatusitem;
+  }
+
+  public void setOrderstatusitem(Orderstatusitem orderstatusitem) {
+    this.orderstatusitem = orderstatusitem;
   }
 
   public void setPhone(String phone) {

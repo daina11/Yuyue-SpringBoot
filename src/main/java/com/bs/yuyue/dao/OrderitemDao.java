@@ -12,4 +12,8 @@ import java.util.List;
 public interface OrderitemDao extends JpaRepository<Orderitem,Integer> {
     List<Orderitem> findAllByOpenidAndStatusOrderByTimeDesc(String openid, int status);
     Orderitem deleteById(int id);
+    Orderitem findById(int id);
+    Page<Orderitem> findAllByShopidOrderByTimeDesc(Pageable pageable,int id);
+    Page<Orderitem> findAllByShopidAndStatusOrderByTimeDesc(Pageable pageable,int sid,int stutas);
+    List<Orderitem> findAllByStatus(int s);
 }
